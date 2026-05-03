@@ -1,12 +1,18 @@
 '''
 大顶堆维护递减序列
 sum 维护堆中所有元素的和
-对于模数 x 
+
+对于 模数 x
 每次弹出所有 >= x 的堆中元素
 取模完毕以后再放回堆中
-并且同时维护 sum 的值
-当堆顶元素 < x 时结束迭代过程
+同时维护 sum 的值
+
+当堆顶元素 < x 的时候
+迭代结束
 '''
+
+
+
 ###################################小(大)顶堆模板###################################
 import heapq
 
@@ -31,10 +37,25 @@ for i in range(n):
 
 x = list(map(int, input().split()))
 for i in range(k):
-    while heap and heap[0].val >= x[i]:
-        sum_val -= heap[0].val
-        y = heapq.heappop(heap).val % x[i]
-        sum_val += y
-        heapq.heappush(heap, HeapItem(y))
-    print(sum_val, end=' ')
+    while heap:
+        if heap[0].val >= x[i]:
+            sum_val -= heap[0].val
+            y = heapq.heappop(heap).val % x[i]
+            heapq.heappush(heap, HeapItem(y))
+            sum_val += y
+        else:
+            break
+    print(sum_val, end = ' ')
 print()
+
+
+
+
+
+
+
+
+
+
+
+
