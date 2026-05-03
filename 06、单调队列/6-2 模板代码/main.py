@@ -20,9 +20,10 @@ def cmpGT(a, b):
 def cmpGE(a, b):
     return a >= b
 
-# ans[i] 代表 [i-k+1, i] 中，最大值或最小值的下标
-# cmpGT :  存储最大值的下标
-# cmpLT :  存储最小值的下标
+# ans[i] 代表 [i-k+1, i] 这个长度为 k 的区间内
+# 所有元素的最小值或者最大值（可以存下标，也可以存值）
+# cmpGT：  ans[i]存储的是最大值
+# cmpLT:   ans[i]存储的是最小值
 def findIntervalMinMax(que, n, k, h, ans, cmp):
     que.data = []
     for i in range(1, n + 1):

@@ -27,7 +27,7 @@ def findFirstMeetOnLeft(stk, n, h, ans, cmp):
     stk.data = []
     stk.data.append(0)
     for i in range(1, n + 1):
-        while stk.data and not cmp(h[stk.data[-1]], h[i]):
+        while not cmp(h[stk.data[-1]], h[i]):
             stk.data.pop()
         ans[i] = stk.data[-1]
         stk.data.append(i)
