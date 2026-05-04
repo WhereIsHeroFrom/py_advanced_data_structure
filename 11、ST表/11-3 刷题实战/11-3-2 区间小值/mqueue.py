@@ -34,16 +34,19 @@ def findIntervalMinMax(que, n, k, h, ans, cmp):
         ans[i] = h[que.data[0]]
 
 #############################单调队列模板#############################
+
 import sys
 que = MonotonicQueue()
+n = int(input())
 line = sys.stdin.readline()
-n = int(line)
-line = sys.stdin.readline()
-h = list(map(int, line.strip().split()))
+h = list(map(int, line.split()))
 h = [0] + [1e9]*n + h + [1e9]*n
-k = int(sys.stdin.readline())
-ans = [0] * (n*3+1)
-findIntervalMinMax(que, n*3, 2*k + 1, h, ans, cmpLT)
-for i in range(n+1+k, n*2+1+k):
+k = int(input())
+
+ans = [0] * len(h)
+
+findIntervalMinMax(que, n*3, 2*k+1, h, ans, cmpLT)
+
+for i in range(n+1+k, n+1+k+n):
     sys.stdout.write(str(ans[i]) + ' ')
-sys.stdout.write('\n')
+print()
